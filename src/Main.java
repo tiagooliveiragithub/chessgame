@@ -37,8 +37,12 @@ public class Main {
                 }
 
                 if(chessMatch.getPromoted() != null) {
-                    System.out.println("Insira para que peça deseja promover o seu peão (B/N/R/Q): ");
+                    System.out.print("Insira para que peça deseja promover o seu peão (B/N/R/Q): ");
                     String type = sc.nextLine();
+                    while(!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
+                        System.out.print("Valor invalido, insira para que peça deseja promover o seu peão (B/N/R/Q): ");
+                        type = sc.nextLine();
+                    }
                     chessMatch.replacePromotedPiece(type);
                 }
 

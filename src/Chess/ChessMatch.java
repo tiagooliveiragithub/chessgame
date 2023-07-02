@@ -4,8 +4,6 @@ import Chess.pieces.*;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
-
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -95,8 +93,6 @@ public class ChessMatch {
             }
         }
 
-
-
         check = (testCheck(opponent(currentPlayer))) ? true : false;
 
         if (testCheckMate(opponent(currentPlayer))) {
@@ -118,7 +114,7 @@ public class ChessMatch {
             throw new IllegalStateException("Não à peça para ser promovida");
         }
         if(!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
-            throw new InvalidParameterException("Não existe nenhum tipo de peça com esse caracter");
+            return promoted;
         }
 
         Position pos = promoted.getChessPosition().toPosition();
